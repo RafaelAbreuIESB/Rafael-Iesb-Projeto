@@ -9,18 +9,18 @@ import {
 export default function App() {
   return (
     <View style={styles.mainContainer}>
-      <view style={{ width: 150 }}>
+      <View style={{ width: '60%', position:'absolute', left: 5, top: 30 }}>
         <TextInput
           style={styles.inputText}
           placeholder={rotulo_input_meta}
         ></TextInput>
-      </view>
-      <view style={{ width: 150 }}>
+      </View>
+      <View style={{width: '40%', position:'absolute', right: 5, top: 30}}>
         <Button title={rotulo_btn_cadastro_meta}></Button>
-      </view>
-      <view>
+      </View>
+      <View style={{width: 150, position:'absolute', left: 5, top: 80}}>
         <Text>{rotulo_lista_metas}</Text>
-      </view>
+      </View>
     </View>
   );
 }
