@@ -5,18 +5,27 @@ import {
   rotulo_btn_cadastro_meta,
   rotulo_lista_metas,
 } from "./mensagens";
-
+import { useState } from "react";
+import { ScrollView } from "react-native";
 export default function App() {
+  const { inputMetaText, setInputMetaText } = useState('');
+  const { metas, setMetas } = useState([]);
+  function metaInputHandler(inputText){
+    setInputMetaText(inputText)
+  };
+  function adicionarMetaHandler(){
+    setMetas([...metas, inputMetaText]);
+  }
   return (
     <View style={styles.mainContainer}>
-      <View  style={{flexDirection:'row', justifyContent:'space-between', flex: '1'}}>
-        <View style={{width:'65%'}}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', flex: '1' }}>
+        <View style={{ width: '65%' }}>
           <TextInput
             style={styles.inputText}
             placeholder={rotulo_input_meta}
           ></TextInput>
         </View>
-        <View style ={{width:'30%'}}>
+        <View style={{ width: '30%' }}>
           <Button title={rotulo_btn_cadastro_meta}></Button>
         </View>
       </View>
@@ -41,8 +50,8 @@ const styles = StyleSheet.create({
     borderColor: "#FF0000",
     borderWidth: 1,
   },
-  metaContainer:{
+  metaContainer: {
     flex: 1,
-
+    paddingTop: 60,
   }
 });
