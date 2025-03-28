@@ -9,16 +9,18 @@ import {
 export default function App() {
   return (
     <View style={styles.mainContainer}>
-      <View style={{ width: '60%', position:'absolute', left: 5, top: 30 }}>
-        <TextInput
-          style={styles.inputText}
-          placeholder={rotulo_input_meta}
-        ></TextInput>
+      <View  style={{flexDirection:'row', justifyContent:'space-between', flex: '1'}}>
+        <View style={{width:'65%'}}>
+          <TextInput
+            style={styles.inputText}
+            placeholder={rotulo_input_meta}
+          ></TextInput>
+        </View>
+        <View style ={{width:'30%'}}>
+          <Button title={rotulo_btn_cadastro_meta}></Button>
+        </View>
       </View>
-      <View style={{width: '40%', position:'absolute', right: 5, top: 30}}>
-        <Button title={rotulo_btn_cadastro_meta}></Button>
-      </View>
-      <View style={{width: 150, position:'absolute', left: 5, top: 80}}>
+      <View style={styles.metaContainer}>
         <Text>{rotulo_lista_metas}</Text>
       </View>
     </View>
@@ -28,15 +30,19 @@ export default function App() {
 const styles = StyleSheet.create({
   mainContainer: {
     padding: 30,
+    flex: 1,
+    flexDirection: 'column'
   },
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
   inputText: {
     borderColor: "#FF0000",
-    borderWidth: 1.5,
+    borderWidth: 1,
   },
+  metaContainer:{
+    flex: 1,
+
+  }
 });
