@@ -8,25 +8,35 @@ import {
 import { useState } from "react";
 import { ScrollView } from "react-native";
 export default function App() {
-  const { inputMetaText, setInputMetaText } = useState('');
+  const { inputMetaText, setInputMetaText } = useState("");
   const { metas, setMetas } = useState([]);
-  function metaInputHandler(inputText){
-    setInputMetaText(inputText)
-  };
-  function adicionarMetaHandler(){
+  function metaInputHandler(inputText) {
+    setInputMetaText(inputText);
+  }
+  function adicionarMetaHandler() {
     setMetas([...metas, inputMetaText]);
   }
   return (
     <View style={styles.mainContainer}>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', flex: '1' }}>
-        <View style={{ width: '65%' }}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          flex: "1",
+        }}
+      >
+        <View style={{ width: "65%" }}>
           <TextInput
             style={styles.inputText}
             placeholder={rotulo_input_meta}
+            onChangeText={metaInputHandler}
           ></TextInput>
         </View>
-        <View style={{ width: '30%' }}>
-          <Button title={rotulo_btn_cadastro_meta}></Button>
+        <View style={{ width: "30%" }}>
+          <Button
+            title={rotulo_btn_cadastro_meta}
+            onPress={adicionarMetaHandler}
+          ></Button>
         </View>
       </View>
       <View style={styles.metaContainer}>
@@ -40,7 +50,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     padding: 30,
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: "column",
   },
   container: {
     alignItems: "center",
@@ -53,5 +63,5 @@ const styles = StyleSheet.create({
   metaContainer: {
     flex: 1,
     paddingTop: 60,
-  }
+  },
 });
