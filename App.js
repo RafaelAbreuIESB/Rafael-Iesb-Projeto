@@ -8,8 +8,8 @@ import {
 import { useState } from "react";
 import { ScrollView } from "react-native";
 export default function App() {
-  const { inputMetaText, setInputMetaText } = useState("");
-  const { metas, setMetas } = useState([]);
+  const [inputMetaText, setInputMetaText] = useState("");
+  const [metas, setMetas] = useState([]);
   function metaInputHandler(inputText) {
     setInputMetaText(inputText);
   }
@@ -40,7 +40,13 @@ export default function App() {
         </View>
       </View>
       <View style={styles.metaContainer}>
-        <Text>{rotulo_lista_metas}</Text>
+        <ScrollView>
+        {metas.map((meta, index) => (
+          <Text key={index} style={styles.item}>
+            {meta}
+          </Text>
+        ))}
+        </ScrollView>
       </View>
     </View>
   );
@@ -61,7 +67,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   metaContainer: {
-    flex: 1,
-    paddingTop: 60,
+    flex: 15,
+  },
+  item: {
+    margin: 8,
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: "lightblue",
   },
 });
